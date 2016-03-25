@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/19 17:36:29 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/03/25 16:50:38 by vquesnel         ###   ########.fr       *#
+#*   Updated: 2016/03/25 16:58:54 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ $(NAME):
 
 clean:
 	@rm -rf $(OBJ)
-	@echo "\033[33;34mall files.o are deleted"
+	@echo "\033[33;34mall libft_files.o are deleted"
 fclean: clean
 	@rm -rf $(NAME)
 	@echo "\033[33;31m$(NAME) is deleted"
