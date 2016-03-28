@@ -6,7 +6,7 @@
 #    By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/03/19 17:36:29 by vquesnel          #+#    #+#              #
-#*   Updated: 2016/03/28 13:20:07 by vquesnel         ###   ########.fr       *#
+#*   Updated: 2016/03/28 13:29:25 by vquesnel         ###   ########.fr       *#
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ $(NAME):
 	@gcc -Wall -Werror -Wextra -c $(SRC) -I $(HEADER)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "\033[32mlibft has been created\033[0m"
+	@echo "\033[32;1m$(NAME) has been created\033[0m"
 
 clean:
 	@rm -rf $(OBJ)
