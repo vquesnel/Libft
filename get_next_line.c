@@ -6,11 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 13:28:11 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/03/23 14:02:59 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/10 13:29:14 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 int				read_file(int fd, char **text)
 {
