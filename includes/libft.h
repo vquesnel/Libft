@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/10 13:28:56 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/10 18:39:33 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define BUFF_SIZE 24
 # define MAX_FILES 256
 
-int		get_next_line(int fd, char **line);
+int				get_next_line(int fd, char **line);
 
 typedef struct	s_list
 {
