@@ -6,7 +6,8 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/18 13:28:11 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/10 13:29:14 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/10 13:30:48 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/03/29 16:22:46 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +63,7 @@ char			*get_one_line(char *text, char **line)
 	return (text);
 }
 
-int				get_next_line(int fd, char **line)
+int				get_next_line(int const fd, char **line)
 {
 	static char	*text[MAX_FILES];
 	int			ret;
