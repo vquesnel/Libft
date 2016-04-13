@@ -5,77 +5,101 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/04/10 18:39:06 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/10 18:39:14 by vquesnel         ###   ########.fr       */
+/*   Created: 2016/04/13 14:01:34 by vquesnel          #+#    #+#             */
+/*   Updated: 2016/04/13 14:09:54 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int				read_file(int fd, char **text)
+static t_save	*ft_create_fd(int fd_pnum)
 {
-	int			ret;
-	char		buf[BUFF_SIZE + 1];
-	char		*tmp;
+	t_save		*fd;
 
-	tmp = NULL;
-	ret = -42;
-	while (!ft_strchr(*text, '\n'))
+	if ((fd = (t_save *)ft_memalloc(sizeof(t_save))) == NULL)
+		return (NULL);
+	fd->rest = ft_strnew(1);
+	fd->fd_num = fd_pnum;
+	fd->next = NULL;
+	return (fd);
+}
+
+static int		ft_save(t_save **s, char *buf, char **line)
+{
+	char	*eol;
+	char	*tmp;
+
+	if ((eol = ft_strchr(buf, '\n')) != NULL && eol++)
 	{
-		if ((ret = read(fd, buf, BUFF_SIZE)) < 0)
-			return (-1);
+		if ((*s)->rest && ft_strchr((*s)->rest, '\n') == NULL)
+			*line = ft_strjoinfrees2((*s)->rest, ft_strcpylimit(buf, '\n'));
 		else
-		{
-			buf[ret] = 0;
-			tmp = *text;
-			if (!(*text = ft_strjoin(*text, buf)))
-				return (-1);
-			free(tmp);
-		}
-		if (ret < BUFF_SIZE)
-			return (ret);
+			*line = ft_strcpylimit(buf, '\n');
+		tmp = (*s)->rest;
+		(*s)->rest = ft_strdup(eol);
+		ft_strdel(&tmp);
+		return (1);
+	}
+	else
+	{
+		tmp = (*s)->rest;
+		if ((*s)->rest)
+			(*s)->rest = ft_strjoin((*s)->rest, buf);
+		else
+			(*s)->rest = ft_strdup(buf);
+		ft_strdel(&tmp);
+	}
+	return (0);
+}
+
+static t_save	*ft_get_list(t_save **s, int fd)
+{
+	t_save			*lst;
+
+	if (!*s)
+		*s = ft_create_fd(fd);
+	lst = *s;
+	while (lst->next && lst->fd_num != fd)
+		lst = lst->next;
+	if (lst->next == NULL && lst->fd_num != fd)
+		lst->next = ft_create_fd(fd);
+	lst = *s;
+	while (lst && lst->fd_num != fd)
+		lst = lst->next;
+	return (lst);
+}
+
+static int		ft_verif_last_line(t_save *lst, char **line, int ret)
+{
+	if (ret != -1 && lst->rest && (*line = ft_strdup(lst->rest)) != NULL)
+	{
+		if (lst->rest && ft_strlen(lst->rest))
+			ret = 1;
+		else
+			ret = 0;
+		ft_strdel(&lst->rest);
 	}
 	return (ret);
 }
 
-char			*get_one_line(char *text, char **line)
-{
-	char		*tmp;
-	int			i;
-
-	tmp = NULL;
-	i = 0;
-	while (text[i])
-	{
-		if (text[i] == '\n')
-		{
-			*line = ft_strsub(text, 0, i);
-			tmp = text;
-			text = ft_strdup(text + i + 1);
-			free(tmp);
-			return (text);
-		}
-		i++;
-	}
-	*line = ft_strdup(text);
-	ft_strclr(text);
-	return (text);
-}
-
 int				get_next_line(int const fd, char **line)
 {
-	static char	*text[MAX_FILES];
-	int			ret;
+	char			buf[BUFF_SIZE + 1];
+	int				ret;
+	static t_save	*s;
+	t_save			*lst;
 
-	if (fd < 0 || fd >= MAX_FILES || !line)
+	if (!line)
 		return (-1);
-	if (!(text[fd]))
-		text[fd] = ft_strnew(0);
-	if ((ret = read_file(fd, &text[fd])) == -1)
-		return (-1);
-	text[fd] = get_one_line(text[fd], line);
-	if (!ft_strlen(text[fd]) && !ft_strlen(*line) && !ret)
-		return (0);
-	else
+	lst = ft_get_list(&s, fd);
+	if (lst && lst->rest && ft_strchr(lst->rest, '\n') &&
+			ft_save(&lst, lst->rest, line))
 		return (1);
+	while ((ret = read(fd, buf, BUFF_SIZE)) > 0)
+	{
+		buf[ret] = '\0';
+		if (ft_save(&lst, buf, line))
+			return (1);
+	}
+	return (ft_verif_last_line(lst, line, ret));
 }

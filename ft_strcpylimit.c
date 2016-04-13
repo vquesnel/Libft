@@ -6,13 +6,13 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 12:47:05 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/13 12:47:07 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 14:06:34 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char		*ft_strcpy_limit(char *str, char n)
+char		*ft_strcpylimit(char *str, char n)
 {
 	int		i;
 	char	*dst;

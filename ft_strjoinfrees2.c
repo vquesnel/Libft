@@ -6,13 +6,13 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/13 12:46:49 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/13 12:46:53 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/13 14:06:52 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin_free_s2(char *s1, char *s2)
+char	*ft_strjoinfrees2(char *s1, char *s2)
 {
 	size_t	i;
 	size_t	j;
