@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 16:06:17 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/14 18:24:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 12:22:22 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,4 @@ int		ft_atoi_base(char *str, int base)
 		i++;
 	}
 	return (verif *toi);
-}
-
-int		main(int ac, char **av)
-{
-	if (ac == 3)
-		printf("%d", ft_atoi_base(av[1], atoi(av[2])));
-	printf("\n");
-	return (0);
 }
