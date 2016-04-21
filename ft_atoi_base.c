@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/08 16:06:17 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 12:22:22 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/21 13:26:52 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int		max_power(char *str, int base)
 	result = 1;
 	while (n > 0)
 	{
-		result  = result * base;
+		result = result * base;
 		n--;
 	}
 	return (result);
@@ -73,5 +73,5 @@ int		ft_atoi_base(char *str, int base)
 		power = power / base;
 		i++;
 	}
-	return (verif *toi);
+	return (verif * toi);
 }
