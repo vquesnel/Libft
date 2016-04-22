@@ -6,15 +6,15 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/22 13:10:32 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 13:10:50 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 13:18:24 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_tablen(char **buffer)
+int	ft_tablen(char **buffer)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	while (buffer[i])

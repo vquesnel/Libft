@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/22 13:11:45 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 13:18:35 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,7 +100,7 @@ int					ft_clear_tab(char **tab);
 char				*ft_strcpylimit(char *str, char n);
 char				*ft_strjoinfrees2(char *s1, char *s2);
 char				*ft_strnewzero(size_t size);
-size_t				ft_tablen(char **tab);
+int					ft_tablen(char **tab);
 
 /*
 ** MATHS
