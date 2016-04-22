@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 17:06:13 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 12:54:42 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ void				*ft_memalloc(size_t size);
 void				ft_memdel(void **ap);
 void				print_memory(const void *addr, size_t size);
 
-
 /*
 ** STRING HANDLING
 */
@@ -100,6 +99,7 @@ int					ft_abs(int c);
 int					ft_clear_tab(char **tab);
 char				*ft_strcpylimit(char *str, char n);
 char				*ft_strjoinfrees2(char *s1, char *s2);
+char				*ft_strnewzero(size_t size);
 
 /*
 ** MATHS
@@ -109,7 +109,6 @@ int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
 int					ft_atoi_base(const char *str, int base);
 char				*ft_itoa_base(int value, int base);
-
 
 /*
 ** TESTS

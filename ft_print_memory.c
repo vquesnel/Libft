@@ -6,7 +6,7 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/28 21:50:39 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 17:04:48 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 12:21:40 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void		make_hexs(unsigned char *line, size_t curline, size_t size)
 	}
 }
 
-void		print_memory(const void *addr, size_t size)
+void			print_memory(const void *addr, size_t size)
 {
 	size_t			curline;
 	unsigned char	*tmp;

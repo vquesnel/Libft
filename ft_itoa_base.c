@@ -6,12 +6,11 @@
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/09 22:45:23 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 17:03:48 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/22 12:59:50 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
 
 int		int_len(int nb, int base)
 {
@@ -24,7 +23,7 @@ int		int_len(int nb, int base)
 		nb = -nb;
 	}
 	if (nb < 0 && base != 10)
-		nb =-nb;
+		nb = -nb;
 	while (nb)
 	{
 		nb /= base;
@@ -47,21 +46,17 @@ long	max_power(long nb, int base)
 
 char	*ft_itoa_base(int value, int base)
 {
-	long	nb;
-	long	max;
-	char	hex[16] = "0123456789ABCDEF";
-	char	*text;
-	int		i;
-	int		j;
+	long			max;
+	static char		hex[16] = "0123456789ABCDEF";
+	char			*text;
+	static int		i;
+	long			nb;
 
-	if ((text = (char *)malloc(sizeof(char) * int_len(value, base) + 1)) == NULL)
-		return (NULL);
+	text = ft_strnewzero(int_len(value, base));
 	nb = (long)value;
-	i = 0;
-	j = 0;
 	if (nb < 0 && base == 10)
 	{
-		text[i]= '-';
+		text[i] = '-';
 		i++;
 		nb = -nb;
 	}
@@ -70,12 +65,10 @@ char	*ft_itoa_base(int value, int base)
 	max = max_power(nb, base);
 	while (max > 0)
 	{
-		j = nb / max;
-		text[i] = hex[j];
+		text[i] = hex[nb / max];
 		nb %= max;
 		max /= base;
 		i++;
 	}
-	text[i] = '\0';
 	return (text);
 }
