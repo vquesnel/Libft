@@ -24,7 +24,8 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c \
 	 ft_lstadd.c ft_lstdel.c ft_lstdelone.c ft_lstiter.c ft_lstmap.c \
 	 ft_lstnew.c ft_swap.c ft_abs.c ft_clear_tab.c get_next_line.c \
 	 ft_strjoinfrees2.c ft_strcpylimit.c ft_atoi_base.c ft_error.c \
-	 ft_print_memory.c ft_itoa_base.c ft_print_hex.c ft_strnewzero.c
+	 ft_print_memory.c ft_itoa_base.c ft_print_hex.c ft_strnewzero.c \
+	 ft_tablen.c
 
 HEADER = ./includes
 OBJ =  $(SRC:.c=.o)
