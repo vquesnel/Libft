@@ -6,14 +6,14 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/04/21 10:06:43 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/21 11:42:49 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/04/28 12:29:27 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_error(void)
+void	ft_error(char *str)
 {
-	ft_putstr("error\n");
+	ft_putendl(str);
 	exit(EXIT_FAILURE);
 }
