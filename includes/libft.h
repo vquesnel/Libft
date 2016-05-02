@@ -6,7 +6,7 @@
 /*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/12/01 17:29:04 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/04/28 12:29:02 by vquesnel         ###   ########.fr       */
+/*   Updated: 2016/05/02 13:29:37 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,13 @@ void				ft_strdel(char **as);
 void				ft_strclr(char *s);
 void				ft_striter(char *s, void (*f)(char *));
 void				ft_striteri(char *s, void (*f)(unsigned int, char *));
-char				*ft_strmap(char const*s, char(*f)(char));
-char				*ft_strmapi(char const*s, char (*f)(unsigned int, char));
-int					ft_strequ(char const*s1, char const*s2);
-int					ft_strnequ(char const*s1, char const*s2, size_t n);
-char				*ft_strsub(char const*s, unsigned int start, size_t len);
-char				*ft_strjoin(char const*s1, char const *s2);
-char				*ft_strtrim(char const*s);
+char				*ft_strmap(char const *s, char(*f)(char));
+char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
+int					ft_strequ(char const *s1, char const*s2);
+int					ft_strnequ(char const *s1, char const*s2, size_t n);
+char				*ft_strsub(char const *s, unsigned int start, size_t len);
+char				*ft_strjoin(char const *s1, char const *s2);
+char				*ft_strtrim(char const *s);
 char				**ft_strsplit(const char *s, char c);
 void				ft_swap(int *a, int *b);
 int					ft_abs(int c);
@@ -108,7 +108,7 @@ int					ft_tablen(char **tab);
 
 int					ft_atoi(const char *str);
 char				*ft_itoa(int n);
-int					ft_atoi_base(const char *str, int base);
+int					ft_atoi_base(char *str, int base);
 char				*ft_itoa_base(int value, int base);
 
 /*
