@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/25 12:04:11 by vquesnel          #+#    #+#             */
-/*   Updated: 2015/11/25 12:04:14 by vquesnel         ###   ########.fr       */
+/*   Created: 2017/11/07 17:21:52 by vquesnel          #+#    #+#             */
+/*   Updated: 2018/02/06 11:56:18 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,5 +16,6 @@ int		ft_toupper(int c)
 {
 	if (c >= 97 && c <= 122)
 		return (c - 32);
-	return (c);
+	else
+		return (c);
 }

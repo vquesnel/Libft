@@ -1,23 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_factorial.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/07 15:57:31 by vquesnel          #+#    #+#             */
-/*   Updated: 2018/02/06 11:53:32 by vquesnel         ###   ########.fr       */
+/*   Created: 2017/11/09 17:15:17 by vquesnel          #+#    #+#             */
+/*   Updated: 2018/02/06 11:53:28 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_isalpha(int c)
+int		ft_factorial(int nb)
 {
-	if (c > 64 && c < 91)
+	int i;
+
+	i = nb - 1;
+	if (nb == 0)
 		return (1);
-	if (c > 96 && c < 123)
-		return (1);
-	else
+	if (nb < 0 || nb > 12)
 		return (0);
+	while (i >= 1)
+	{
+		nb = i * nb;
+		i--;
+	}
+	return (nb);
 }

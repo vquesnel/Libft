@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/11/27 12:30:02 by vquesnel          #+#    #+#             */
-/*   Updated: 2015/11/27 13:05:56 by vquesnel         ###   ########.fr       */
+/*   Created: 2017/11/08 10:34:22 by vquesnel          #+#    #+#             */
+/*   Updated: 2018/02/06 11:53:59 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 			dst++;
 			return (dst);
 		}
-		i++;
 		dst++;
 		src++;
+		i++;
 	}
 	return (NULL);
 }

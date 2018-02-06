@@ -3,55 +3,49 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strsplit.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/17 13:41:36 by vquesnel          #+#    #+#             */
-/*   Updated: 2015/12/17 13:41:47 by vquesnel         ###   ########.fr       */
+/*   Created: 2017/11/09 14:15:00 by vquesnel          #+#    #+#             */
+/*   Updated: 2018/02/06 11:56:02 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int	wd_cnt(char const *s, char c)
+static int		ft_count(char const *str, int i, char c)
 {
-	int	wd;
-	int	i;
+	int		count;
 
-	i = 0;
-	wd = 0;
-	if (s[0] != c)
-		wd++;
-	while (s[++i])
-	{
-		if (s[i] != c && s[i - 1] == c)
-			wd++;
-	}
-	return (wd);
+	count = i;
+	while (str[count] != c && str[count])
+		count++;
+	return (count - i);
 }
 
-char		**ft_strsplit(char const *s, char c)
+char			**ft_strsplit(char const *s, char c)
 {
 	int		i;
 	int		j;
-	int		ind;
-	char	*tmp;
+	int		k;
 	char	**tab;
 
-	i = -1;
-	ind = -1;
-	if (!s || !(tab = (char **)ft_memalloc(sizeof(char*) * (wd_cnt(s, c) + 1))))
+	i = 0;
+	j = 0;
+	if (s == NULL || !(tab = (char**)malloc(sizeof(char*) * ft_strlen(s))))
 		return (NULL);
-	while (s[++i])
+	while (s[i])
 	{
-		if (s[i] != c && (i == 0 || s[i - 1] == c))
+		while (s[i] == c && s[i])
+			i++;
+		if (s[i] && s[i] != c)
 		{
-			j = 0;
-			while (s[i + j] && s[i + j] != c)
-				j++;
-			tmp = ft_strsub(s, i, j);
-			tab[++ind] = tmp;
-			i += j - 1;
+			k = 0;
+			tab[j] = ft_memalloc(ft_count(s, i, c) + 1);
+			while (s[i] != c && s[i])
+				tab[j][k++] = s[i++];
+			tab[j++][k] = '\0';
 		}
 	}
+	tab[j] = NULL;
 	return (tab);
 }

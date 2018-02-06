@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: vquesnel <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: vquesnel <vquesnel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/12/01 17:23:56 by vquesnel          #+#    #+#             */
-/*   Updated: 2016/03/22 13:38:09 by vquesnel         ###   ########.fr       */
+/*   Created: 2017/11/08 16:46:41 by vquesnel          #+#    #+#             */
+/*   Updated: 2018/02/06 11:55:23 by vquesnel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,27 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	char	*new;
-	int		i;
-	int		j;
+	int		a;
+	char	*ret;
 
-	i = -1;
-	if (s1 && s2)
+	a = 0;
+	if (!s1 || !s2)
+		return (0);
+	ret = ft_memalloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!ret)
+		return (0);
+	while (*s1)
 	{
-		new = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
-		if (!new)
-			return (NULL);
-		while (s1[++i])
-			new[i] = s1[i];
-		j = -1;
-		while (s2[++j])
-			new[i + j] = s2[j];
-		return (new);
+		ret[a] = *s1;
+		s1++;
+		a++;
 	}
-	return (NULL);
+	while (*s2)
+	{
+		ret[a] = *s2;
+		s2++;
+		a++;
+	}
+	ret[a] = '\0';
+	return (ret);
 }
